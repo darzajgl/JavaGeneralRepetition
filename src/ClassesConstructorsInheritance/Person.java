@@ -1,0 +1,89 @@
+package ClassesConstructorsInheritance;
+/* Write a class with the name Person. The class needs three fields(instance variables) with names firstName, lastName of type String and age of type int.
+Write the following methods:
+1. Method named getFirstName without any parameters, it needs to return the value of the firstName field.
+2. Method named getLastName without any parameters, it needs to return the value of the LastName field.
+3. Method named getAge without any parameters, it needs to return the value of the age field.
+4. Setter for firstName and lastName fields.
+5. Method named setAge with one parameter of type int, it needs to set value of the age field, If the parameter is less than 0 or greater than 100, it needs to set tha age field value to 0.
+6. Method named isTeen without any parameters, it needs to return true if the value of the age field is greater than 12 and less than 20, otherwise, return false.
+7. Method named getFullName without any parameters, it needs to return the full name of the parson.
+ - In case both firstName and lastName fields are empty, Strings return an empty String
+ - In case lastName is an empty String, return firstName.
+ - In case firstName is an empty String, return lastName.
+
+ To check if String is empty, use the method isEmpty from the String class.
+
+ */
+
+public class Person {
+
+    public static void main(String[] args) {
+        Person person = new Person();
+        person.setFirstName("");
+        person.setLastName("");
+        person.setAge(10);
+        System.out.println("full name =" +person.getFullName());
+        System.out.println("teen = "+person.isTeen());
+        person.setFirstName("Johan");
+        person.setAge(18);
+        System.out.println("full name = "+person.getFullName());
+        System.out.println("teen = "+person.isTeen());
+        person.setLastName("Kovalsky");
+        System.out.println("full name = "+person.getFullName());
+    }
+
+
+
+
+    private String firstName;
+    private String lastName;
+    private int age;
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if (age < 0 || age > 100) {
+            this.age = 0;
+        } else {
+            this.age = age;
+        }
+    }
+
+    public boolean isTeen() {
+        if (age > 12 && age < 20) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public String getFullName() {
+        if (firstName.isEmpty()) {
+            return lastName;
+        }
+        if (lastName.isEmpty()) {
+            return firstName;
+        } else {
+            return firstName + " " + lastName;
+        }
+    }
+}
