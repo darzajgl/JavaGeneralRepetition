@@ -33,9 +33,6 @@ public class Person {
         System.out.println("full name = "+person.getFullName());
     }
 
-
-
-
     private String firstName;
     private String lastName;
     private int age;
